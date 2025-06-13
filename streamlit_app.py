@@ -36,7 +36,7 @@ class SinhalaTranslator:
         self.translator = pipeline(
             "translation",
             model="Helsinki-NLP/opus-mt-en-sinhala",
-            device=0 if torch.cuda.is_available() else -1
+            device="auto"
         )
         self.embedder = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
         self.kb_path = download_knowledge_base()
